@@ -1,0 +1,7 @@
+CREATE PROCEDURE [dbo].[ExcluirPessoa]
+	@ID INT
+AS
+BEGIN
+	DELETE FROM Pessoa_Salario WHERE Pessoa_ID=@ID;
+	DELETE FROM Pessoa WHERE ID=@ID;
+END
