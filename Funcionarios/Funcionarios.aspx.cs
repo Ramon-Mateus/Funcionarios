@@ -106,6 +106,22 @@ namespace Funcionarios
             }
         }
 
+        private void LimparCampos()
+        {
+            pessoaIdBox.Text = string.Empty;
+            NomeBox.Text = string.Empty;
+            cidadeBox.Text = string.Empty;
+            emailBox.Text = string.Empty;
+            cepBox.Text = string.Empty;
+            EnderecoBox.Text = string.Empty;
+            paisBox.Text = string.Empty;
+            usuarioBox.Text = string.Empty;
+            telefoneBox.Text = string.Empty;
+            dataNascimentoBox.Text = string.Empty;
+            ddlCargos.SelectedIndex = 0;
+            salarioBox.Text = string.Empty;
+        }
+
         protected void ddlCargos_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -191,13 +207,48 @@ namespace Funcionarios
             }
             else
             {
-                MessageLbl.Text = "Por favor selecione um funcionário para atualizar.";
+                MessageLbl.Text = "Por favor, selecione um funcionário para atualizar.";
             }
         }
 
         protected void DeleteBtn_Click(object sender, EventArgs e)
         {
+            if (pessoaIdBox.Text.Trim().Length >= 1)
+            {
+                try
+                {
+                    string sqlQuery = "EXEC ExcluirPessoa @ID";
+                    SqlCommand cmd = new SqlCommand(sqlQuery, con);
 
+                    cmd.Parameters.AddWithValue("@ID", pessoaIdBox.Text);
+
+                    if (con.State == ConnectionState.Closed)
+                        con.Open();
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    if (rowsAffected >= 1)
+                    {
+                        MessageLbl.Text = "Funcionário excluído com sucesso.";
+                        MostrarFuncionarios();
+                        LimparCampos();
+                    }
+                    else
+                    {
+                        MessageLbl.Text = "Funcionário não excluído.";
+                    }
+
+                    con.Close();
+                }
+                catch (SqlException ex)
+                {
+                    MessageLbl.Text = "Houve um problema na exclusão de funcionário: " + ex.Message.ToString();
+                }
+            }
+            else
+            {
+                MessageLbl.Text = "Por favor, selecione um funcionário para excluir.";
+            }
         }
 
         protected void GridViewList_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -207,6 +258,11 @@ namespace Funcionarios
                 string ID = e.CommandArgument.ToString();
                 PopularInputs(ID);
             }
+        }
+
+        protected void CleanBtn_Click(object sender, EventArgs e)
+        {
+            LimparCampos();
         }
     }
 }

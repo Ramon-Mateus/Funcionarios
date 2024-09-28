@@ -77,8 +77,9 @@
         </div>
 
         <div class="form-group mb-3">
-            <asp:Button ID="UpdateBtn" runat="server" Text="Update" CssClass="btn btn-warning" OnClick="UpdateBtn_Click" />
-            <asp:Button ID="DeleteBtn" runat="server" Text="Delete" CssClass="btn btn-danger" OnClick="DeleteBtn_Click" />
+            <asp:Button ID="UpdateBtn" runat="server" Text="Atualizar" CssClass="btn btn-warning" OnClick="UpdateBtn_Click" />
+            <asp:Button ID="DeleteBtn" runat="server" Text="Excluir" CssClass="btn btn-danger" OnClick="DeleteBtn_Click" />
+            <asp:Button ID="CleanBtn" runat="server" Text="Limpar" CssClass="btn btn-secondary" OnClick="CleanBtn_Click" />
         </div>
 
 
