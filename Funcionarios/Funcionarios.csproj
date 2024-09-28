@@ -232,6 +232,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Sqls\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
