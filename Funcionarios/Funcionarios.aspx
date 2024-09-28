@@ -96,11 +96,11 @@
                 <asp:BoundField DataField="Telefone" HeaderText="Telefone" />
                 <asp:BoundField DataField="Data_Nascimento" HeaderText="Data de Nascimento" />
                 <asp:BoundField DataField="Cargo" HeaderText="Cargo" />
-                <asp:BoundField DataField="Salario" HeaderText="Salário" />
+                <asp:BoundField DataField="Salario" HeaderText="Salário" DataFormatString="R$ {0:N2}" />
 
                 <asp:TemplateField HeaderText="Action">
                     <ItemTemplate>
-                        <asp:Button ID="btnView" runat="server" Text="View" CssClass="btn btn-primary" CommandName="ViewDetails" CommandArgument='<%# Bind("ID") %>' />
+                        <asp:Button ID="btnView" runat="server" Text="Selecionar" CssClass="btn btn-primary" CommandName="ViewDetails" CommandArgument='<%# Bind("ID") %>' />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

@@ -69,6 +69,43 @@ namespace Funcionarios
             }
         }
 
+        public void PopularInputs(string ID)
+        {
+            try
+            {
+                string sqlQuery = "EXEC SelecionarPessoa @ID";
+                SqlCommand cmd = new SqlCommand(sqlQuery, con);
+                cmd.Parameters.AddWithValue("@ID", ID);
+
+                if (con.State == ConnectionState.Closed)
+                    con.Open();
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    pessoaIdBox.Text = rdr.GetValue(0).ToString();
+                    NomeBox.Text = rdr.GetValue(1).ToString();
+                    cidadeBox.Text = rdr.GetValue(2).ToString();
+                    emailBox.Text = rdr.GetValue(3).ToString();
+                    cepBox.Text = rdr.GetValue(4).ToString();
+                    EnderecoBox.Text = rdr.GetValue(5).ToString();
+                    paisBox.Text = rdr.GetValue(6).ToString();
+                    usuarioBox.Text = rdr.GetValue(7).ToString();
+                    telefoneBox.Text = rdr.GetValue(8).ToString();
+                    dataNascimentoBox.Text = Convert.ToDateTime(rdr.GetValue(9)).ToString("yyyy-MM-dd");
+                    ddlCargos.SelectedValue = rdr.GetValue(10).ToString();
+                    salarioBox.Text = Convert.ToDecimal(rdr.GetValue(11)).ToString("N2");
+                }
+
+                con.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageLbl.Text = "Existe um problema populando os inputs: " + ex.Message.ToString();
+            }
+        }
+
         protected void ddlCargos_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -89,7 +126,7 @@ namespace Funcionarios
 
                     if (salario != null)
                     {
-                        salarioBox.Text = Convert.ToDecimal(salario).ToString("F2");
+                        salarioBox.Text = Convert.ToDecimal(salario).ToString("N2");
                     }
                     else
                     {
@@ -121,7 +158,11 @@ namespace Funcionarios
 
         protected void GridViewList_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-
+            if (e.CommandName == "ViewDetails")
+            {
+                string ID = e.CommandArgument.ToString();
+                PopularInputs(ID);
+            }
         }
     }
 }
