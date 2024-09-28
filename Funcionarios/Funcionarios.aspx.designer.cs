@@ -11,16 +11,25 @@ namespace Funcionarios
 {
 
 
-    public partial class SiteMaster
+    public partial class Funcionarios
     {
 
         /// <summary>
-        /// MainContent control.
+        /// MessageLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.Label MessageLbl;
+
+        /// <summary>
+        /// GridViewList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridViewList;
     }
 }
