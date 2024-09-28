@@ -9,7 +9,7 @@ CREATE PROCEDURE [dbo].[AtualizarPessoa]
 	@Usuario NVARCHAR(255),
 	@Telefone NVARCHAR(255),
 	@Data_Nascimento NVARCHAR(255),
-	@Cargo_ID NVARCHAR(255)
+	@Cargo_ID INT
 AS
 BEGIN
 	UPDATE Pessoa SET Nome=@Nome, Cidade=@Cidade, Email=@Email, CEP=@CEP, Endereco=@Endereco, Pais=@Pais, Usuario=@Usuario, Telefone=@Telefone, Data_Nascimento=@Data_Nascimento, Cargo_ID=@Cargo_ID WHERE ID=@ID;
