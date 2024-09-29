@@ -25,4 +25,6 @@ BEGIN
 	FROM Pessoa as p
 	INNER JOIN Cargo as c on c.ID = p.Cargo_ID
 	WHERE p.ID = @PessoaID;
+
+	SELECT @PessoaID AS PessoaID;
 END

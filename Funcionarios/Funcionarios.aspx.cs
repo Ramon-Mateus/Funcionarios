@@ -264,5 +264,47 @@ namespace Funcionarios
         {
             LimparCampos();
         }
+
+        protected void InsertBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string sqlQuery = "EXEC CriarPessoa @Nome, @Cidade, @Email, @CEP, @Endereco, @Pais, @Usuario, @Telefone, @Data_Nascimento, @Cargo_ID";
+                SqlCommand cmd = new SqlCommand(sqlQuery, con);
+
+                cmd.Parameters.AddWithValue("@Nome", NomeBox.Text);
+                cmd.Parameters.AddWithValue("@Cidade", cidadeBox.Text);
+                cmd.Parameters.AddWithValue("@Email", emailBox.Text);
+                cmd.Parameters.AddWithValue("@CEP", cepBox.Text);
+                cmd.Parameters.AddWithValue("@Endereco", EnderecoBox.Text);
+                cmd.Parameters.AddWithValue("@Pais", paisBox.Text);
+                cmd.Parameters.AddWithValue("@Usuario", usuarioBox.Text);
+                cmd.Parameters.AddWithValue("@Telefone", telefoneBox.Text);
+                cmd.Parameters.AddWithValue("@Data_Nascimento", dataNascimentoBox.Text);
+                cmd.Parameters.AddWithValue("@Cargo_ID", ddlCargos.SelectedValue);
+
+                if (con.State == ConnectionState.Closed)
+                    con.Open();
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                if (rowsAffected >= 1)
+                {
+                    MessageLbl.Text = "Funcionário criado com sucesso.";
+                    MostrarFuncionarios();
+                    LimparCampos();
+                }
+                else
+                {
+                    MessageLbl.Text = "Funcionário não criado.";
+                }
+
+                con.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageLbl.Text = "Houve um problema na criação de funcionário: " + ex.Message.ToString();
+            }
+        }
     }
 }

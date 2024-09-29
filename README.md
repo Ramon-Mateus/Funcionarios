@@ -13,5 +13,8 @@ Sistema de gerenciamento de funcionários de uma empresa.
 - [X] Store Procedure de listagem de pessoas e salários
 - [X] Store Procedure de listagem de cargos
 - [X] Store Procedure de seleção de pessoa
-- [ ] Página de listagem de pessoas e salários
+- [X] Página de listagem de pessoas e salários
+- [X] Rotina de criação de pessoa
+- [X] Rotina de atualização de pessoa
+- [X] Rotina de exclusão de pessoa
 - [ ] rotina de calcular/recalcular salário
