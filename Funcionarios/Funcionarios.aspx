@@ -78,9 +78,16 @@
 
         <div class="form-group mb-3">
             <asp:Button ID="InsertBtn" runat="server" Text="Criar" CssClass="btn btn-primary" OnClick="InsertBtn_Click" />
-            <asp:Button ID="UpdateBtn" runat="server" Text="Atualizar" CssClass="btn btn-warning" OnClick="UpdateBtn_Click" />
-            <asp:Button ID="DeleteBtn" runat="server" Text="Excluir" CssClass="btn btn-danger" OnClick="DeleteBtn_Click" />
+            <asp:Button ID="UpdateBtn" runat="server" Text="Atualizar" CssClass="btn btn-warning" 
+                OnClick="UpdateBtn_Click" 
+                OnClientClick="return confirm('Tem certeza que deseja atualizar este registro?');" />
+            <asp:Button ID="DeleteBtn" runat="server" Text="Excluir" CssClass="btn btn-danger" 
+                OnClick="DeleteBtn_Click" 
+                OnClientClick="return confirm('Tem certeza que deseja excluir este registro?');" />
             <asp:Button ID="CleanBtn" runat="server" Text="Limpar" CssClass="btn btn-secondary" OnClick="CleanBtn_Click" />
+            <asp:Button ID="RecalcBtn" runat="server" Text="Recalcular salários" CssClass="btn btn-dark" 
+                OnClick="RecalcBtn_Click" 
+                OnClientClick="return confirm('Tem certeza que deseja recalcular os salários?');" />
         </div>
 
 

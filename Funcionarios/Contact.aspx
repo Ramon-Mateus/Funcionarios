@@ -3,17 +3,15 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main aria-labelledby="title">
         <h2 id="title"><%: Title %>.</h2>
-        <h3>Your contact page.</h3>
+        <h3>Ramon de Oliveira Araújo Mateus</h3>
         <address>
-            One Microsoft Way<br />
-            Redmond, WA 98052-6399<br />
-            <abbr title="Phone">P:</abbr>
-            425.555.0100
+            Desenvolvido com ASP.NET, Web Forms e Microsoft SQL Server<br />
+            Natal/RN<br />
         </address>
 
         <address>
-            <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-            <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+            <strong>GITHUB:</strong>   <a href="https://github.com/Ramon-Mateus">https://github.com/Ramon-Mateus</a><br />
+            <strong>EMAIL:</strong> <a href="mailto:ramon.ufrn@gmail.com">ramon.ufrn@gmail.com</a>
         </address>
     </main>
 </asp:Content>

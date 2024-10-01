@@ -17,4 +17,5 @@ Sistema de gerenciamento de funcionários de uma empresa.
 - [X] Rotina de criação de pessoa
 - [X] Rotina de atualização de pessoa
 - [X] Rotina de exclusão de pessoa
-- [ ] rotina de calcular/recalcular salário
+- [X] Pop up de confirmação de ação
+- [X] rotina de calcular/recalcular salário

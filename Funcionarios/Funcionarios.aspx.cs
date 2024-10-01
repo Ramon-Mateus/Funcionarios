@@ -306,5 +306,36 @@ namespace Funcionarios
                 MessageLbl.Text = "Houve um problema na criação de funcionário: " + ex.Message.ToString();
             }
         }
+
+        protected void RecalcBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string sqlQuery = "EXEC CriarPessoaSalarios";
+                SqlCommand cmd = new SqlCommand(sqlQuery, con);
+
+                if (con.State == ConnectionState.Closed)
+                    con.Open();
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                if (rowsAffected >= 1)
+                {
+                    MessageLbl.Text = "Salários recalculados com sucesso.";
+                    MostrarFuncionarios();
+                    LimparCampos();
+                }
+                else
+                {
+                    MessageLbl.Text = "Salários não recalculados";
+                }
+
+                con.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageLbl.Text = "Houve um problema no recálculo de salários: " + ex.Message.ToString();
+            }
+        }
     }
 }
