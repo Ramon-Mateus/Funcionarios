@@ -13,6 +13,10 @@ Na pasta Funcionarios/Backup/ tem um arquivo de backup do banco SQL Server que u
 
 Após configurado o banco de dados, abra a solução em algum editor de código de sua preferência(eu utilizei o Visual Studio) e rode a aplicação.
 
+### Store procedures
+
+Para facilitar a visualização das store procedures usadas na aplicação, coloquei os arquivos de criação delas na pasta Funcionarios/Sqls/.
+
 # Objetivos
 
 - [X] Criar o banco de dados com os dados passados
